@@ -3,18 +3,18 @@ package com.m11.util;
 public class OSCheck {
     static String OS = System.getProperty("os.name").toLowerCase();
     public static boolean isWindows() {
-        return (OS.indexOf("win") >= 0);
+        return (OS.contains("win"));
     }
 
     public static boolean isMac() {
-        return (OS.indexOf("mac") >= 0);
+        return (OS.contains("mac") || OS.contains("mac os x"));
     }
 
     public static boolean isUnix() {
-        return (OS.indexOf("nix") >= 0
-                || OS.indexOf("nux") >= 0
-                || OS.indexOf("aix") > 0
-                || OS.indexOf("linux") > 0
+        return (OS.contains("nix")
+                || OS.contains("nux")
+                || OS.contains("aix")
+                || OS.contains("linux")
         );
     }
 }

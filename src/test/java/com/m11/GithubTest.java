@@ -10,9 +10,8 @@ import org.openqa.selenium.Rectangle;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.Augmenter;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import javax.imageio.ImageIO;
@@ -20,7 +19,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertNotNull;
 
 
 
@@ -29,9 +28,10 @@ public class GithubTest {
     @Test
     public void getMosaicImage() throws InterruptedException {
         System.out.println(OSCheck.isUnix());
+        System.out.println(OSCheck.isMac());
         System.out.println(System.getProperty("os.name").toLowerCase());
-        System.setProperty("webdriver.gecko.driver", WebDriverUtil.getWebDriverByOS());
-        WebDriver driver = new FirefoxDriver();
+        System.setProperty("webdriver.chrome.driver", WebDriverUtil.getWebDriverByOS());
+        WebDriver driver = new ChromeDriver();
 
         try {
             driver.get("https://github.com/mshemanskyi");
