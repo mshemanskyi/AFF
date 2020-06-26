@@ -1,5 +1,6 @@
 package com.m11;
 
+import com.m11.util.WebDriverUtil;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
@@ -10,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.Augmenter;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import javax.imageio.ImageIO;
@@ -25,7 +27,7 @@ public class GithubTest {
 
     @Test
     public void getMosaicImage() throws InterruptedException {
-        System.setProperty("webdriver.gecko.driver", "src/main/resources/WebDrivers/geckodriver");
+        System.setProperty("webdriver.gecko.driver", WebDriverUtil.getWebDriverByOS());
         WebDriver driver = new FirefoxDriver();
 
         try {
