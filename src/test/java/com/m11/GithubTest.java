@@ -1,5 +1,6 @@
 package com.m11;
 
+import com.m11.util.OSCheck;
 import com.m11.util.WebDriverUtil;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -27,6 +28,8 @@ public class GithubTest {
 
     @Test
     public void getMosaicImage() throws InterruptedException {
+        System.out.println(OSCheck.isUnix());
+        System.out.println(System.getProperty("os.name").toLowerCase());
         System.setProperty("webdriver.gecko.driver", WebDriverUtil.getWebDriverByOS());
         WebDriver driver = new FirefoxDriver();
 
