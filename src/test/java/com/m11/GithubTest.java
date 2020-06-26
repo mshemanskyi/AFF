@@ -11,6 +11,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.Augmenter;
 import org.testng.annotations.Test;
 
@@ -31,7 +32,14 @@ public class GithubTest {
         System.out.println(OSCheck.isMac());
         System.out.println(System.getProperty("os.name").toLowerCase());
         System.setProperty("webdriver.chrome.driver", WebDriverUtil.getWebDriverByOS());
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("start-maximized"); // open Browser in maximized mode
+        options.addArguments("disable-infobars"); // disabling infobars
+        options.addArguments("--disable-extensions"); // disabling extensions
+        options.addArguments("--disable-gpu"); // applicable to windows os only
+        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+        options.addArguments("--no-sandbox"); // Bypass OS security model
+        WebDriver driver = new ChromeDriver(options);
 
         try {
             driver.get("https://github.com/mshemanskyi");
